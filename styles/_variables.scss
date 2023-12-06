@@ -1,0 +1,33 @@
+// colors light
+$color-bg: #F3F2F2;
+$color-title: #000;
+$color-contour: #D2D0D0;
+$color-navigation: #BCB8B8;
+$color-text: #2D2B2A;
+$color-input: #5E5E5E;
+$color-hover-input: #6159FC;
+
+// colors dark
+$color-bg-dark: #191919;
+$color-icon-dark: #FFFFFF;
+$color-text-dark: #EEEDEC;
+$color-title-dark: #6DE8CE;
+
+// fonts
+$font-jost: 'Jost', sans-serif;
+$font-circe: 'Circe', sans-serif;
+$font-furore: 'Furore', sans-serif;
+
+// extensions
+$mobile-l: 390px;
+$mobile: 768px;
+$desktop: 1280px;
+$laptop: 1440px;
+$laptop-l: 1700px;
+
+// mixins
+@mixin background-style {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
