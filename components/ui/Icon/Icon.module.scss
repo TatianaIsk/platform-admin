@@ -1,0 +1,16 @@
+@import '@/styles/_variables.scss';
+
+.icon {
+  width: 20px;
+  height: 8px;
+
+  @include background-style;
+
+  &.arrowClose {
+    background-image: url('~/assets/icons/light/nav/arrow-close.svg');
+  }
+
+  &.arrowOpen {
+    background-image: url('~/assets/icons/light/nav/arrow-open.svg');
+  }
+}

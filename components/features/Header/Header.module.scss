@@ -1,0 +1,31 @@
+@import '@/styles/_variables.scss';
+
+.container {
+  padding: 10px 50px 0 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid $color-contour;
+
+  .logo {
+    font-family: 'Circe';
+    font-size: 36px;
+    color: $color-title;
+    font-style: bold;
+    font-weight: 800;
+    line-height: normal;
+  }
+
+  .themeBtn {
+    width: 30px;
+    height: 30px;
+    background-image: url('~/assets/icons/light/theme-icon.svg');
+    margin-right: 6px;
+  }
+
+  .loginBtn {
+    width: 30px;
+    height: 30px;
+    background-image: url('~/assets/icons/light/login-icon.svg');
+  }
+}

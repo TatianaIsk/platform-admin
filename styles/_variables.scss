@@ -1,22 +1,36 @@
 // colors light
-$color-bg: #F3F2F2;
+$color-bg: #f3f2f2;
 $color-title: #000;
-$color-contour: #D2D0D0;
-$color-navigation: #BCB8B8;
-$color-text: #2D2B2A;
-$color-input: #5E5E5E;
-$color-hover-input: #6159FC;
+$color-contour: #d2d0d0;
+$color-navigation: #bcb8b8;
+$color-text: #2d2b2a;
+$color-input: #5e5e5e;
+$color-hover-input: #6159fc;
 
 // colors dark
 $color-bg-dark: #191919;
-$color-icon-dark: #FFFFFF;
-$color-text-dark: #EEEDEC;
-$color-title-dark: #6DE8CE;
+$color-icon-dark: #ffffff;
+$color-text-dark: #eeedec;
+$color-title-dark: #6de8ce;
 
 // fonts
-$font-jost: 'Jost', sans-serif;
-$font-circe: 'Circe', sans-serif;
-$font-furore: 'Furore', sans-serif;
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  src: local('Jost'), url('./fonts/Jost/Jost-Medium.woff'), format('woff');
+}
+
+@font-face {
+  font-family: 'Circe';
+  font-style: normal;
+  src: local('Circe'), url('./fonts/Circe/Circe-ExtraBold.woff'), format('woff');
+}
+
+@font-face {
+  font-family: 'Furore';
+  font-style: normal;
+  src: local('Furore'), url('./fonts/Furore/Furore.woff'), format('woff');
+}
 
 // extensions
 $mobile-l: 390px;
