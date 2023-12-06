@@ -45,3 +45,14 @@ $laptop-l: 1700px;
   background-position: center;
   background-size: contain;
 }
+
+// animations
+@keyframes slideOpen {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0%); 
+  }
+}
+

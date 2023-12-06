@@ -4,7 +4,7 @@ import s from './SidebarMenu.module.scss';
 
 const SidebarMenu = () => {
   return (
-    <nav>
+    <nav className={s.wrapper}>
       <ul>
         <li>
           <Link href='/'>Home</Link>
