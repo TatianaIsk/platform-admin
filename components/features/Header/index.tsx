@@ -1,4 +1,6 @@
+'use client';
 import { PropsWithChildren } from 'react';
+import { useRouter } from 'next/navigation';
 
 import clsx from 'clsx';
 
@@ -10,12 +12,21 @@ interface HeaderProps extends PropsWithChildren {
 }
 
 const Header: React.FC<HeaderProps> = ({ className, children }) => {
+  const router = useRouter();
+
   return (
     <div className={clsx(s.container, className)}>
-      <div className={s.logo}>M-Social</div>
+      <div
+        className={s.logo}
+        onClick={() => {
+          router.push('/');
+        }}
+      >
+        M-Social
+      </div>
       <div>
-        <Button className={s.themeBtn}/>
-				<Button className={s.loginBtn}/>
+        <Button className={s.themeBtn} />
+        <Button className={s.loginBtn} />
       </div>
     </div>
   );

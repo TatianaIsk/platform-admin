@@ -1,12 +1,16 @@
 import Header from '@/components/features/Header';
+import Sidebar from '@/components/features/Sidebar';
+import PageContent from './conponents/PageContent';
 
 import s from './MainPage.module.scss';
-import Sidebar from '@/components/features/Sidebar';
 
 const MainPage = () => (
   <div className={s.container}>
     <Header />
-    <Sidebar />
+    <div className={s.content}>
+      <Sidebar />
+      <PageContent />
+    </div>
   </div>
 );
 
