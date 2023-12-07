@@ -1,0 +1,21 @@
+@import '@/styles/_variables.scss';
+
+.container {
+  width: 100%;
+  background-color: $color-bg;
+
+  .content {
+    display: flex;
+  }
+
+  .userContent {
+    width: 100%;
+    padding: 40px 50px;
+  }
+
+  .title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

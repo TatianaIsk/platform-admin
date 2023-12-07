@@ -1,0 +1,25 @@
+@import '@/styles/_variables.scss';
+
+.search {
+  border: 1px solid $color-contour;
+  width: 300px;
+  padding: 8px 10px;
+  align-items: flex-start;
+  gap: 10px;
+  background-color: $color-bg;
+
+  font-family: 'Jost-Light';
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
+  letter-spacing: -0.15px;
+
+  &::placeholder {
+    color: $color-input-placeholder;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}

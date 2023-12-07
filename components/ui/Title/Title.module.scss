@@ -1,0 +1,11 @@
+@import '@/styles/_variables.scss';
+
+.title {
+	color: $color-subtitle;
+  font-family: 'Furore';
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 116%; 
+  letter-spacing: -0.36px;
+}
