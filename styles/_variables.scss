@@ -15,7 +15,13 @@ $color-title-dark: #6de8ce;
 
 // fonts
 @font-face {
-  font-family: 'Jost';
+  font-family: 'Jost-light';
+  font-style: normal;
+  src: local('Jost'), url('./fonts/Jost/Jost-Light.woff'), format('woff');
+}
+
+@font-face {
+  font-family: 'Jost-bold';
   font-style: normal;
   src: local('Jost'), url('./fonts/Jost/Jost-Medium.woff'), format('woff');
 }
