@@ -1,0 +1,51 @@
+@import '@/styles/_variables.scss';
+
+.table {
+  width: 100%;
+
+  .thead {
+		margin-bottom: 16px;
+
+    th {
+      text-align: left;
+      padding: 12px 0;
+      color: $color-navigation;
+      font-family: 'Furore';
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      letter-spacing: -0.14px;
+    }
+		
+		&::after {
+			border-top: 1px solid $color-contour;
+			content: '';
+			display: table-row;
+			height: 16px; 
+		}
+  }
+
+  tbody {
+    tr {
+      border-bottom: 1px solid $color-contour;
+			padding-bottom: 8px;
+
+			td {
+				padding: 12px 0 9px 0;
+				cursor: pointer;
+				color: $color-text;
+
+				&::after {
+					content: '';
+					display: table-row;
+					height: 8px; 
+				}
+			}
+
+			&:first-child {
+				background-color: $color-table-area;
+			}
+    }
+  }
+}
