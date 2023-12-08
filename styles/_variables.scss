@@ -65,3 +65,14 @@ $laptop-l: 1700px;
   }
 }
 
+@keyframes loaderAnimation {
+  0% {
+    transform: scaleY(1);
+  }
+  20% {
+    transform: scaleY(2.5);
+  }
+  40% {
+    transform: scaleY(1);
+  }
+}
