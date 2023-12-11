@@ -1,0 +1,40 @@
+@import '@/styles/_variables.scss';
+
+.inputBlock {
+  max-width: 440px;
+
+  .label {
+    font-family: 'Furore';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: normal;
+    letter-spacing: -0.01em;
+
+    display: block;
+    color: $color-input-placeholder;
+    background-color: $color-contour;
+    padding: 8px;
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 10px, 100% 100%, 0 100%);
+
+    &:hover {
+      color: $color-hover-input;
+    }
+  }
+
+  .input {
+    font-family: 'Jost-light';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: normal;
+
+    display: block;
+    width: 100%;
+    padding: 8px;
+    border: 1px solid $color-contour;
+    &:focus {
+      outline: none;
+    }
+  }
+}

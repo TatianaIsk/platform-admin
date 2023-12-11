@@ -12,6 +12,7 @@ import Loading from '@/components/features/Loading';
 import Table from '@/components/ui/Table';
 
 import s from './UsersPage.module.scss';
+import Link from 'next/link';
 
 const UsersPage = () => {
   const [users, setUsers] = useState<User[]>([]);
@@ -46,15 +47,21 @@ const UsersPage = () => {
       user.name,
       user.username,
       user.email,
+      user.phone,
       user.address.city + ' ' + user.address.street + ' ' + user.address.zipcode,
-      user.company.name,
+      user.company.companyName,
     ]);
 
   return (
     <div className={s.userContent}>
       <div className={s.title}>
         <Title title='Пользователи' />
-        <Search value={searchTerm} onChange={handleSearchChange} placeholder='Поиск' />
+        <div>
+          <Link href='/users/create-user' className={s.link}>
+            Создать нового пользователя
+          </Link>
+          <Search value={searchTerm} onChange={handleSearchChange} placeholder='Поиск' />
+        </div>
       </div>
       {isLoading ? <Loading /> : <Table columns={columns} data={data} />}
     </div>

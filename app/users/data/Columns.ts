@@ -1,4 +1,4 @@
-import { Column } from "../types/Columns";
+import { Column } from '../types/Columns';
 
 export const columnTitles: Column[] = [
   { title: '>', key: 'actions' },
@@ -6,6 +6,7 @@ export const columnTitles: Column[] = [
   { title: 'Имя', key: 'name' },
   { title: 'Никнейм (eng)', key: 'nickname' },
   { title: 'e-mail', key: 'email' },
+  { title: 'phone', key: 'phone' },
   { title: 'адрес', key: 'address' },
   { title: 'компания', key: 'company' },
 ];

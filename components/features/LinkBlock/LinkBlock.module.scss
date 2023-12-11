@@ -1,0 +1,18 @@
+@import '@/styles/_variables.scss';
+
+.container {
+	display: flex;
+	justify-content: space-between;
+
+	a {
+		color: $color-navigation;
+		font-family: 'Furore';
+		font-size: 14px; 
+	}
+
+	.links {
+		a {
+			margin-left: 16px;
+		}
+	}
+}
