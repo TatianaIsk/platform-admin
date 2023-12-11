@@ -32,14 +32,23 @@ const UsersPage = () => {
     setSearchTerm(value);
   };
 
-  const columns = columnTitles.map(col => (
+  const columns = columnTitles.map((col, index) => (
     <div key={col.key} className={s.column}>
-      {col.title} <Button className={s.theadBtn} />
+      {index === 0 ? col.title : col.title + ' '}
+      {index === 0 ? null : <Button className={s.theadBtn} />}
     </div>
   ));
   const data = users
     .filter(user => user.name.toLowerCase().includes(searchTerm.toLowerCase()))
-    .map(user => [user.id, user.name, user.username, user.email, user.address.city + ' ' + user.address.street + ' ' + user.address.zipcode, user.company.name]);
+    .map(user => [
+      <Button key={user.id} className={s.btn} />,
+      user.id,
+      user.name,
+      user.username,
+      user.email,
+      user.address.city + ' ' + user.address.street + ' ' + user.address.zipcode,
+      user.company.name,
+    ]);
 
   return (
     <div className={s.userContent}>

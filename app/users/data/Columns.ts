@@ -1,6 +1,7 @@
 import { Column } from "../types/Columns";
 
 export const columnTitles: Column[] = [
+  { title: '>', key: 'actions' },
   { title: 'ID', key: 'id' },
   { title: 'Имя', key: 'name' },
   { title: 'Никнейм (eng)', key: 'nickname' },

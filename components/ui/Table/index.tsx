@@ -4,7 +4,7 @@ import s from './Table.module.scss';
 
 interface TableProps {
   columns: (string | React.ReactNode)[];
-  data: (string | number)[][];
+  data: (string | number | React.ReactNode)[][];
 }
 
 const Table: React.FC<TableProps> = ({ columns, data }) => (
