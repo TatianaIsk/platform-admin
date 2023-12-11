@@ -4,7 +4,7 @@
   width: 100%;
 
   .thead {
-		margin-bottom: 16px;
+    margin-bottom: 16px;
 
     th {
       text-align: left;
@@ -17,35 +17,39 @@
       line-height: normal;
       letter-spacing: -0.14px;
     }
-		
-		&::after {
-			border-top: 1px solid $color-contour;
-			content: '';
-			display: table-row;
-			height: 16px; 
-		}
+
+    &::after {
+      border-top: 1px solid $color-contour;
+      content: '';
+      display: table-row;
+      height: 16px;
+    }
+
+    .button {
+      background-image: url('~/assets/icons/light/table/arrow-column.svg');
+    }
   }
 
   tbody {
     tr {
       border-bottom: 1px solid $color-contour;
-			padding-bottom: 8px;
+      padding-bottom: 8px;
 
-			td {
-				padding: 12px 0 9px 0;
-				cursor: pointer;
-				color: $color-text;
+      td {
+        padding: 12px 0 9px 7px;
+        cursor: pointer;
+        color: $color-text;
 
-				&::after {
-					content: '';
-					display: table-row;
-					height: 8px; 
-				}
-			}
+        &::after {
+          content: '';
+          display: table-row;
+          height: 8px;
+        }
+      }
 
-			&:first-child {
-				background-color: $color-table-area;
-			}
+      &:first-child {
+        background-color: $color-table-area;
+      }
     }
   }
 }

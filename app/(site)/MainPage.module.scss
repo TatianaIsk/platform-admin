@@ -1,10 +1,38 @@
 @import '@/styles/_variables.scss';
 
-.container {
-  width: 100%;
-  background-color: $color-bg;
+.wrapper {
+  margin-top: 118px;
+  margin-left: 50px;
 
-  .content {
-    display: flex;
+  h1 {
+    color: $color-title;
+    font-family: 'Circe';
+    font-size: 200px;
+    font-style: normal;
+    font-weight: 800;
+		height: 140px;
+		margin-bottom: 110px;
   }
+
+  h3 {
+		color: $color-subtitle;
+    font-family: 'Jost-Light';
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: -0.4px;
+		margin: 0;
+  }
+
+	p {
+		color: $color-subtitle;
+    font-family: 'Jost-Light';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: -0.4px;
+		margin: 0;
+		margin-top: 10px;
+	}
 }
+

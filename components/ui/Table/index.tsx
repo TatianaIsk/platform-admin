@@ -1,3 +1,5 @@
+import Button from '../Button';
+
 import s from './Table.module.scss';
 
 interface TableProps {

@@ -1,22 +1,25 @@
 @import '@/styles/_variables.scss';
 
-.container {
+.userContent {
   width: 100%;
-  background-color: $color-bg;
+  padding: 40px 50px;
+}
 
-  .content {
-    display: flex;
-  }
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
 
-  .userContent {
-    width: 100%;
-    padding: 40px 50px;
-  }
+.theadBtn {
+	width: 12px;
+	height: 12px;
+	background-image: url('~/assets/icons/light/table/arrow-thead.svg');
+	margin-left: 2px;
+}
 
-  .title {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 24px;
-  }
+.column {
+	display: flex;
+	align-items: center;
 }
