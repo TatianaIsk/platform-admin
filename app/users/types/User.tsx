@@ -10,7 +10,7 @@ export interface User {
   };
   phone: string;
   company: {
-    companyName: string;
+    name: string;
     catchPhrase: string;
   };
 }

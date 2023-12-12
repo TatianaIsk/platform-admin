@@ -53,7 +53,7 @@ const CreateUser = () => {
       <Input label='Улица' classNames={{ inputBlock: s.input }} name='street' value={user.address.street} onChange={handleChange} />
       <h3 className={s.subtitle}>Компания</h3>
       <div className={s.inputBlock}>
-        <Input label='Название' name='companyName' value={user.company.companyName} onChange={handleChange} />
+        <Input label='Название' name='companyName' value={user.company.name} onChange={handleChange} />
         <Input label='Описание' name='catchPhrase' value={user.company.catchPhrase} onChange={handleChange} />
       </div>
       <Button className={s.btn} onClick={handleClick}>

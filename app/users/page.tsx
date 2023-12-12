@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 import { fetchUsers } from './actions/fetchUsers';
 import { User } from './types/User';
@@ -12,7 +13,6 @@ import Loading from '@/components/features/Loading';
 import Table from '@/components/ui/Table';
 
 import s from './UsersPage.module.scss';
-import Link from 'next/link';
 
 const UsersPage = () => {
   const [users, setUsers] = useState<User[]>([]);
@@ -33,10 +33,15 @@ const UsersPage = () => {
     setSearchTerm(value);
   };
 
+  const handleSort = () => {
+    const sortedData = [...users].sort((a, b) => a.name.localeCompare(b.name));
+    setUsers(sortedData);
+  };
+
   const columns = columnTitles.map((col, index) => (
     <div key={col.key} className={s.column}>
       {index === 0 ? col.title : col.title + ' '}
-      {index === 0 ? null : <Button className={s.theadBtn} />}
+      {index === 0 ? null : <Button className={s.theadBtn} onClick={handleSort}/>}
     </div>
   ));
   const data = users
@@ -49,7 +54,7 @@ const UsersPage = () => {
       user.email,
       user.phone,
       user.address.city + ' ' + user.address.street + ' ' + user.address.zipcode,
-      user.company.companyName,
+      user.company.name,
     ]);
 
   return (

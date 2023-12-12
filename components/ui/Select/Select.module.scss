@@ -1,0 +1,23 @@
+@import '@/styles/_variables.scss';
+
+.select {
+  padding: 3px 12px 4px 8px;
+  font-family: 'Furore';
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: $color-text;
+  border: 1px solid $color-contour;
+  background-color: $color-bg;
+}
+
+.option {
+	font-family: 'Furore';
+	font-size: 14px;
+
+	&:focus {
+		font-family: 'Furore';
+		font-size: 14px;
+	}
+}
