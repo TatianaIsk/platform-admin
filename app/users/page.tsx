@@ -11,6 +11,7 @@ import Search from '@/components/features/Search';
 import Button from '@/components/ui/Button';
 import Loading from '@/components/features/Loading';
 import Table from '@/components/ui/Table';
+import Dropdown from './components/Dropdown';
 
 import s from './UsersPage.module.scss';
 
@@ -18,6 +19,7 @@ const UsersPage = () => {
   const [users, setUsers] = useState<User[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -41,13 +43,13 @@ const UsersPage = () => {
   const columns = columnTitles.map((col, index) => (
     <div key={col.key} className={s.column}>
       {index === 0 ? col.title : col.title + ' '}
-      {index === 0 ? null : <Button className={s.theadBtn} onClick={handleSort}/>}
+      {index !== 0 && index !== columnTitles.length - 1 && <Button className={s.theadBtn} onClick={handleSort} />}
     </div>
   ));
   const data = users
     .filter(user => user.name.toLowerCase().includes(searchTerm.toLowerCase()))
     .map(user => [
-      <Button key={user.id} className={s.btn} />,
+      <Button key={user.id} className={s.btn} onClick={() => setIsDropdownOpen(!isDropdownOpen)} />,
       user.id,
       user.name,
       user.username,
@@ -55,6 +57,7 @@ const UsersPage = () => {
       user.phone,
       user.address.city + ' ' + user.address.street + ' ' + user.address.zipcode,
       user.company.name,
+      isDropdownOpen ? <Dropdown key={user.id} hrefView={`/users/view/${user.id}`} hrefEdit={`/users/edit/${user.id}`} user={user} onClose={() => setIsDropdownOpen(false)} /> : null,
     ]);
 
   return (
@@ -69,6 +72,7 @@ const UsersPage = () => {
         </div>
       </div>
       {isLoading ? <Loading /> : <Table columns={columns} data={data} />}
+      <p className={s.text}>Строк на странице: {users.length}</p>
     </div>
   );
 };

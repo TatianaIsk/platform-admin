@@ -42,4 +42,14 @@
     font-weight: 300;
     clip-path: polygon(2% 16.21%, 0% 16.01%, 0% 0%, 95% 0%, 100% 30.42%, 100% 5%, 100% 100%, 100% 99.4%, 0% 99.4%, 0% 84.2%, 2% 84.2%);
   }
+
+  .text {
+    margin-top: 48px;
+    font-family: 'Jost-Light';
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    color: $color-contour;
+  }
 }

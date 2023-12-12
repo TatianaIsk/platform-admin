@@ -9,4 +9,5 @@ export const columnTitles: Column[] = [
   { title: 'phone', key: 'phone' },
   { title: 'адрес', key: 'address' },
   { title: 'компания', key: 'company' },
+  { title: '', key: 'dropdown'}
 ];

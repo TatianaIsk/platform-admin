@@ -57,7 +57,7 @@ const TasksPage = () => {
     fetchTasks(selectedPage, perPage).then(taskData => {
       setTasks(taskData);
     });
-  };  
+  };
 
   const columns = columnTitles.map(col => (
     <div key={col.key} className={s.column}>
@@ -92,7 +92,13 @@ const TasksPage = () => {
         />
       </div>
       {isLoading ? <Loading /> : <Table columns={columns} data={data} />}
-      <Pagination pageCount={9} onPageChange={handlePageChange} />
+      <div className={s.footer}>
+        <Button className={s.btnCreate}>Создать {'>>>'}</Button>
+        <div className={s.pagination}>
+          <p className={s.text}>Строк на странице: {perPage}</p>
+          <Pagination pageCount={9} onPageChange={handlePageChange} />
+        </div>
+      </div>
     </div>
   );
 };
