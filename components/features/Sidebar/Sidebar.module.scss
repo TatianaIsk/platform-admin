@@ -2,7 +2,6 @@
 
 .sidebar {
 	width: 40px;
-  height: 100vh;
   border: 1px solid $color-contour;
 	display: flex; 
   flex-direction: column;
@@ -17,7 +16,6 @@
 
 .sidebarOpen {
 	width: 330px;
-	height: 100vh;
 	border: 1px solid $color-contour;
 	display: flex;
 	flex-direction: column;

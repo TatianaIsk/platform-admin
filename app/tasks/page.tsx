@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 import { fetchTasks } from './actions/fetchTasks';
 import { fetchUsers } from '../users/actions/fetchUsers';
@@ -16,9 +17,9 @@ import Button from '@/components/ui/Button';
 import Loading from '@/components/features/Loading';
 import Table from '@/components/ui/Table';
 import Select from '@/components/ui/Select';
+import Pagination from '@/components/features/Pagination';
 
 import s from './TaskPage.module.scss';
-import Image from 'next/image';
 
 const TasksPage = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
@@ -30,11 +31,15 @@ const TasksPage = () => {
   const [selectedUser, setSelectedUser] = useState('');
   const [selectedStatus, setSelectedStatus] = useState('');
 
+  const [currentPage, setCurrentPage] = useState(0);
+  const [perPage, setPerPage] = useState(25);
+
   const statusOptions = ['Выполнено', 'Не выполнено'];
 
   useEffect(() => {
     const fetchTaskData = async () => {
-      const taskData = await fetchTasks();
+      setIsLoading(true);
+      const taskData = await fetchTasks(currentPage, perPage);
       setTasks(taskData);
       setIsLoading(false);
     };
@@ -45,9 +50,16 @@ const TasksPage = () => {
 
     fetchTaskData();
     fetchUserData();
-  }, []);
+  }, [currentPage, perPage]);
 
-  const columns = columnTitles.map((col) => (
+  const handlePageChange = (selectedPage: number) => {
+    setCurrentPage(selectedPage);
+    fetchTasks(selectedPage, perPage).then(taskData => {
+      setTasks(taskData);
+    });
+  };  
+
+  const columns = columnTitles.map(col => (
     <div key={col.key} className={s.column}>
       {col.title}
       <Button className={s.theadBtn} />
@@ -80,6 +92,7 @@ const TasksPage = () => {
         />
       </div>
       {isLoading ? <Loading /> : <Table columns={columns} data={data} />}
+      <Pagination pageCount={9} onPageChange={handlePageChange} />
     </div>
   );
 };

@@ -47,4 +47,15 @@
     line-height: normal;
     letter-spacing: -0.15px;
   }
+
+  .active {
+    margin-bottom: 10px;
+    font-family: 'Jost-bold';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.15px;
+    text-decoration: underline;
+  }
 }

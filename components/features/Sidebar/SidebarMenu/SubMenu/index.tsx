@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
 import Link from 'next/link';
 
@@ -16,6 +17,12 @@ interface SubMenuProps {
 
 const SubMenu: React.FC<SubMenuProps> = ({ label, links }) => {
   const [isMenuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const [activeLink, setActiveLink] = useState('');
+
+  useEffect(() => {
+    setActiveLink(pathname);
+  }, [pathname]);
 
   return (
     <>
@@ -28,7 +35,7 @@ const SubMenu: React.FC<SubMenuProps> = ({ label, links }) => {
       {isMenuOpen && (
         <div className={s.submenu}>
           {links.map(({ href, title }) => (
-            <Link key={href} href={href} className={s.sublink}>
+            <Link key={href} href={href} className={activeLink === href ? s.active : s.sublink}>
               {title}
             </Link>
           ))}

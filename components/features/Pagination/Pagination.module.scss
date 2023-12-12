@@ -1,0 +1,32 @@
+@import '@/styles/_variables.scss';
+
+.pagination {
+  display: flex;
+  margin-top: 115px;
+  font-family: 'Furore';
+  font-size: 14px;
+}
+
+.page {
+  border: 1px solid $color-contour;
+  color: $color-contour;
+  padding: 4px 11px;
+}
+
+.next {
+  border: 1px solid $color-contour;
+  color: $color-contour;
+  padding: 4px 11px;
+}
+
+.prev {
+	border: 1px solid $color-contour;
+  color: $color-contour;
+  padding: 4px 11px;
+}
+
+.break {
+	border: 1px solid $color-contour;
+  color: $color-contour;
+  padding: 4px 11px;
+}

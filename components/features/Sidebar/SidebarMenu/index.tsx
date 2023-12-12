@@ -19,7 +19,7 @@ const SidebarMenu = () => {
       <Link href='/users' className={activeLink === '/users' ? s.active : s.link}>
         Пользователи
       </Link>
-      <Link href='/tasks' className={s.link}>
+      <Link href='/tasks' className={activeLink === '/tasks' ? s.active : s.link}>
         Задания
       </Link>
       <SubMenu
