@@ -17,9 +17,12 @@ import s from './UsersPage.module.scss';
 
 const UsersPage = () => {
   const [users, setUsers] = useState<User[]>([]);
+
   const [isLoading, setIsLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const [openUserId, setOpenUserId] = useState<number | null>(null);
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -40,6 +43,10 @@ const UsersPage = () => {
     setUsers(sortedData);
   };
 
+  const handleButtonClick = (userId: number) => {
+    setOpenUserId((prevUserId) => (prevUserId === userId ? null : userId));
+  };
+
   const columns = columnTitles.map((col, index) => (
     <div key={col.key} className={s.column}>
       {index === 0 ? col.title : col.title + ' '}
@@ -49,7 +56,7 @@ const UsersPage = () => {
   const data = users
     .filter(user => user.name.toLowerCase().includes(searchTerm.toLowerCase()))
     .map(user => [
-      <Button key={user.id} className={s.btn} onClick={() => setIsDropdownOpen(!isDropdownOpen)} />,
+      <Button key={user.id} className={s.btn} onClick={() => handleButtonClick(user.id)} />,
       user.id,
       user.name,
       user.username,
@@ -57,7 +64,7 @@ const UsersPage = () => {
       user.phone,
       user.address.city + ' ' + user.address.street + ' ' + user.address.zipcode,
       user.company.name,
-      isDropdownOpen ? <Dropdown key={user.id} hrefView={`/users/view/${user.id}`} hrefEdit={`/users/edit/${user.id}`} user={user} onClose={() => setIsDropdownOpen(false)} /> : null,
+      openUserId === user.id && <Dropdown key={user.id} hrefView={`/users/view/${user.id}`} hrefEdit={`/users/edit/${user.id}`} user={user} onClose={() => setOpenUserId(null)} />,
     ]);
 
   return (

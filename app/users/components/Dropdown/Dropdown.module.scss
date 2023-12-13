@@ -1,10 +1,28 @@
-.dropdown {
-	display: flex;
-	justify-content: space-between;
-	padding: 0 10px;
-	
+@import '@/styles/_variables.scss';
 
-	.closeBtn {
-		align-items: flex-start;
-	}
+.dropdown {
+  position: relative;
+  display: inline-block;
+  padding: 0 20px;
+
+  .dropdownContent {
+    display: flex;
+    flex-direction: column;
+
+    .link {
+      font-family: 'Jost-Light';
+      font-size: 16px;
+    }
+  }
+
+  .closeBtn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-family: 'Jost-Light';
+    font-size: 12px;
+		color: $color-text;
+		border: 1px solid $color-text;
+		padding: 0 4px;
+  }
 }

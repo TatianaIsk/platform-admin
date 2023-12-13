@@ -21,16 +21,20 @@ const Dropdown: React.FC<DropdownProps> = ({ onClose, hrefView, hrefEdit, user }
 
   return (
     <div className={s.dropdown}>
-      <div>
+      <div className={s.dropdownContent}>
         <Link href={hrefView} className={s.link}>
           Посмотреть
         </Link>
         <Link href={hrefEdit} className={s.link}>
           Редактировать
         </Link>
-        <Button>Удалить</Button>
+        <Link href='/' className={s.link}>
+          Удалить
+        </Link>
       </div>
-      <Button onClick={handleButtonClick} className={s.closeBtn}>X</Button>
+      <Button onClick={handleButtonClick} className={s.closeBtn}>
+        X
+      </Button>
     </div>
   );
 };
