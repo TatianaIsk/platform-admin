@@ -1,7 +1,7 @@
 import s from './EditUser.module.scss';
 
 const EditUser = () => {
-  return <div>[id]</div>;
+  return <div>{}</div>;
 };
 
 export default EditUser;

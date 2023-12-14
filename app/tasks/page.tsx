@@ -32,7 +32,7 @@ const TasksPage = () => {
   const [selectedStatus, setSelectedStatus] = useState('');
 
   const [currentPage, setCurrentPage] = useState(0);
-  const [perPage, setPerPage] = useState(25);
+  const [perPage] = useState(25);
 
   const statusOptions = ['Выполнено', 'Не выполнено'];
 

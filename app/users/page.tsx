@@ -17,21 +17,18 @@ import s from './UsersPage.module.scss';
 
 const UsersPage = () => {
   const [users, setUsers] = useState<User[]>([]);
-
   const [isLoading, setIsLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
   const [openUserId, setOpenUserId] = useState<number | null>(null);
 
   useEffect(() => {
-    const fetchUserData = async () => {
+    const fetchUsersData = async () => {
       const userData = await fetchUsers();
       setUsers(userData);
       setIsLoading(false);
     };
 
-    fetchUserData();
+    fetchUsersData();
   }, []);
 
   const handleSearchChange = (value: string) => {
@@ -44,7 +41,7 @@ const UsersPage = () => {
   };
 
   const handleButtonClick = (userId: number) => {
-    setOpenUserId((prevUserId) => (prevUserId === userId ? null : userId));
+    setOpenUserId(prevUserId => (prevUserId === userId ? null : userId));
   };
 
   const columns = columnTitles.map((col, index) => (
