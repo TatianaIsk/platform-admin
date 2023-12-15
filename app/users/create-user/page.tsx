@@ -2,10 +2,9 @@
 import { useRouter } from 'next/navigation';
 import { FormProvider, useForm } from 'react-hook-form';
 
-import { validationSchema } from './validation';
+import { validationSchema } from '../validation';
 import { yupResolver } from '@hookform/resolvers/yup';
 
-import { links } from './data/Links';
 import { User } from '../types/User';
 import { InitialState } from '../utils/InitialState';
 import { createUser } from '../actions/createUser';
@@ -38,7 +37,13 @@ const CreateUser = () => {
   return (
     <FormProvider {...form}>
       <form className={s.container} onSubmit={onSubmit}>
-        <LinkBlock previousPageUrl='/users' links={links} />
+        <LinkBlock
+          previousPageUrl='/users'
+          links={[
+            { title: 'Список', url: '/users' },
+            { title: 'Просмотр', url: '/users' },
+          ]}
+        />
         <Title title='создать пользователя' className={s.title} />
         <div className={s.inputBlock}>
           <Input label='ФИО' name='name' classNames={{ input: errors.name && s.inputError }} />

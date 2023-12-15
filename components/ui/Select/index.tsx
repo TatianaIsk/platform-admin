@@ -1,20 +1,34 @@
+import { useFormContext } from 'react-hook-form';
+import { ErrorMessage } from '@hookform/error-message';
+
+import Error from '../Error';
+
+import clsx from 'clsx';
+
 import s from './Select.module.scss';
 
 interface SelectProps {
   options: string[];
-  value: string;
-  onChange: (value: string) => void;
+  className?: string;
+  name: string;
+  disabled?: boolean;
+  onChange?: (value: string) => void;
 }
 
-const Select: React.FC<SelectProps> = ({ options, value, onChange }) => {
+const Select: React.FC<SelectProps> = ({ options, className, name, disabled, onChange }) => {
+  const { register } = useFormContext();
+
   return (
-    <select value={value} onChange={e => onChange(e.target.value)} className={s.select}>
-      {options.map((option, index) => (
-        <option key={index} value={option} className={s.option}>
-          {option}
-        </option>
-      ))}
-    </select>
+    <>
+      <select className={clsx(s.select, className)} {...register(name, { disabled })} onChange={e => onChange?.(e.target.value)}>
+        {options.map((option, index) => (
+          <option key={index} value={option} className={s.option}>
+            {option}
+          </option>
+        ))}
+      </select>
+      <ErrorMessage name={name} render={({ message }) => <Error>{message}</Error>} />
+    </>
   );
 };
 

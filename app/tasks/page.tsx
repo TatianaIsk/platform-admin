@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
+import { FormProvider, useForm } from 'react-hook-form';
 import Image from 'next/image';
 
 import { fetchTasks } from './actions/fetchTasks';
@@ -29,18 +30,18 @@ const TasksPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
 
-  const [selectedUser, setSelectedUser] = useState('');
-  const [selectedStatus, setSelectedStatus] = useState('');
-
   const [currentPage, setCurrentPage] = useState(0);
   const [perPage] = useState(25);
+
+  const [selectedUserName, setSelectedUserName] = useState('');
+  const [selectedStatus, setSelectedStatus] = useState<string>('');
 
   const statusOptions = ['Выполнено', 'Не выполнено'];
 
   useEffect(() => {
     const fetchTaskData = async () => {
       setIsLoading(true);
-      const taskData = await fetchTasks(currentPage, perPage);
+      const taskData = await fetchTasks(currentPage, perPage, selectedUserName, selectedStatus);
       setTasks(taskData);
       setIsLoading(false);
     };
@@ -51,14 +52,7 @@ const TasksPage = () => {
 
     fetchTaskData();
     fetchUserData();
-  }, [currentPage, perPage]);
-
-  const handlePageChange = (selectedPage: number) => {
-    setCurrentPage(selectedPage);
-    fetchTasks(selectedPage, perPage).then(taskData => {
-      setTasks(taskData);
-    });
-  };
+  }, [currentPage, perPage, selectedUserName, selectedStatus]);
 
   const columns = columnTitles.map(col => (
     <div key={col.key} className={s.column}>
@@ -67,42 +61,36 @@ const TasksPage = () => {
     </div>
   ));
   const data = tasks
-    .filter(task => task.title.toLowerCase().includes(searchTerm.toLowerCase()))
+    .filter(
+      task =>
+        task.title.toLowerCase().includes(searchTerm.toLowerCase()) &&
+        (selectedUserName === '' || users.find(user => user.id === task.userId)?.name === selectedUserName) &&
+        (selectedStatus === '' || selectedStatus === 'Статус' || task.completed === (selectedStatus === 'Выполнено'))
+    )
     .map(task => [task.id, users.find(user => user.id === task.userId)?.name, task.title, task.completed ? <Image src={completed} alt='' /> : <Image src={notCompleted} alt='' />]);
-
   return (
-    <div className={s.taskContent}>
-      <div className={s.title}>
-        <Title title='Задачи' />
-        <Search value={searchTerm} onChange={value => setSearchTerm(value)} placeholder='Поиск' />
-      </div>
-      <div className={s.filters}>
-        <Select
-          options={['Пользователь', ...users.map(user => user.name)]}
-          value={selectedUser}
-          onChange={value => {
-            setSelectedUser(value);
-          }}
-        />
-        <Select
-          options={['Статус', ...statusOptions]}
-          value={selectedStatus}
-          onChange={value => {
-            setSelectedStatus(value);
-          }}
-        />
-      </div>
-      {isLoading ? <Loading /> : <Table columns={columns} data={data} />}
-      <div className={s.footer}>
-        <Link className={s.btnCreate} href='/tasks/create-task'>
-          Создать {'>>>'}
-        </Link>
-        <div className={s.pagination}>
-          <p className={s.text}>Строк на странице: {perPage}</p>
-          <Pagination pageCount={9} onPageChange={handlePageChange} />
+    <FormProvider {...useForm()}>
+      <div className={s.taskContent}>
+        <div className={s.title}>
+          <Title title='Задачи' />
+          <Search value={searchTerm} onChange={value => setSearchTerm(value)} placeholder='Поиск' />
+        </div>
+        <div className={s.filters}>
+          <Select options={['Пользователь', ...users.map(user => user.name)]} name='users' onChange={selectedUser => setSelectedUserName(selectedUser === 'Пользователь' ? '' : selectedUser)} />
+          <Select options={['Статус', ...statusOptions]} name='status' onChange={selectedStatus => setSelectedStatus(selectedStatus)} />
+        </div>
+        {isLoading ? <Loading /> : <Table columns={columns} data={data} />}
+        <div className={s.footer}>
+          <Link className={s.btnCreate} href='/tasks/create-task'>
+            Создать {'>>>'}
+          </Link>
+          <div className={s.pagination}>
+            <p className={s.text}>Строк на странице: {perPage}</p>
+            <Pagination pageCount={9} onPageChange={selectedPage => setCurrentPage(selectedPage)} />
+          </div>
         </div>
       </div>
-    </div>
+    </FormProvider>
   );
 };
 
