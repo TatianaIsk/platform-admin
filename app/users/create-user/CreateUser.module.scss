@@ -36,6 +36,10 @@
     max-width: 890px;
   }
 
+  .inputError {
+    border: 1px solid $color-red;
+  }
+
   .btn {
     background-color: $color-navigation;
     padding: 15px 62px;

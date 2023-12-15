@@ -12,7 +12,7 @@ export const InitialState: User = {
   },
   phone: '',
   company: {
-    companyName: '',
+    name: '',
     catchPhrase: '',
   },
 };
