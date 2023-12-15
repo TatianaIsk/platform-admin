@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-import { User } from '../../types/User';
+import { Task } from '../types/Task';
 
-export const createUser = async (user: User) => {
+export const createTask = async (user: Task) => {
   try {
     const response = await axios.post('https://jsonplaceholder.typicode.com/users', user);
 
@@ -11,7 +11,7 @@ export const createUser = async (user: User) => {
 
     return data;
   } catch (error) {
-    console.error('Ошибка при создании пользователя:', error);
+    console.error('Ошибка при создании задачи:', error);
     throw error;
   }
 };

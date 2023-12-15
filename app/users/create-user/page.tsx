@@ -7,8 +7,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 
 import { links } from './data/Links';
 import { User } from '../types/User';
-import { InitialState } from './utils/InitialState';
-import { createUser } from './actions/createUser';
+import { InitialState } from '../utils/InitialState';
+import { createUser } from '../actions/createUser';
 
 import LinkBlock from '@/components/features/LinkBlock';
 import Title from '@/components/ui/Title';

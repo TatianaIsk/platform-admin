@@ -20,6 +20,7 @@ import Select from '@/components/ui/Select';
 import Pagination from '@/components/features/Pagination';
 
 import s from './TaskPage.module.scss';
+import Link from 'next/link';
 
 const TasksPage = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
@@ -93,7 +94,9 @@ const TasksPage = () => {
       </div>
       {isLoading ? <Loading /> : <Table columns={columns} data={data} />}
       <div className={s.footer}>
-        <Button className={s.btnCreate}>Создать {'>>>'}</Button>
+        <Link className={s.btnCreate} href='/tasks/create-task'>
+          Создать {'>>>'}
+        </Link>
         <div className={s.pagination}>
           <p className={s.text}>Строк на странице: {perPage}</p>
           <Pagination pageCount={9} onPageChange={handlePageChange} />
