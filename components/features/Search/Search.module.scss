@@ -1,4 +1,4 @@
-@import '@/styles/_variables.scss';
+@import "@/styles/_variables.scss";
 
 .search {
   border: 1px solid $color-contour;
@@ -8,7 +8,7 @@
   gap: 10px;
   background-color: $color-bg;
 
-  font-family: 'Jost-Light';
+  font-family: var("--font-jost");
   font-size: 15px;
   font-style: normal;
   font-weight: 400;

@@ -1,8 +1,8 @@
-@import '@/styles/_variables.scss';
+@import "@/styles/_variables.scss";
 
 .pagination {
   display: flex;
-  font-family: 'Furore';
+  font-family: var("--font-furore");
   font-size: 14px;
 }
 
@@ -19,13 +19,13 @@
 }
 
 .prev {
-	border: 1px solid $color-contour;
+  border: 1px solid $color-contour;
   color: $color-contour;
   padding: 4px 11px;
 }
 
 .break {
-	border: 1px solid $color-contour;
+  border: 1px solid $color-contour;
   color: $color-contour;
   padding: 4px 11px;
 }

@@ -1,4 +1,4 @@
-@import '@/styles/_variables.scss';
+@import "@/styles/_variables.scss";
 
 .taskContent {
   width: 100%;
@@ -14,7 +14,7 @@
   .theadBtn {
     width: 12px;
     height: 12px;
-    background-image: url('~/assets/icons/light/table/arrow-thead.svg');
+    background-image: url("~/assets/icons/light/table/arrow-thead.svg");
     margin-left: 2px;
   }
 
@@ -24,7 +24,7 @@
   }
 
   .btn {
-    background-image: url('~/assets/icons/light/table/arrow-column.svg');
+    background-image: url("~/assets/icons/light/table/arrow-column.svg");
     width: 12px;
     height: 12px;
     display: flex;
@@ -37,10 +37,22 @@
     padding: 8px 30px 10px 30px;
     margin-right: 20px;
     color: $color-white;
-    font-family: 'Furore';
+    font-family: var("--font-furore");
     font-size: 14px;
     font-weight: 300;
-    clip-path: polygon(2% 16.21%, 0% 16.01%, 0% 0%, 95% 0%, 100% 30.42%, 100% 5%, 100% 100%, 100% 99.4%, 0% 99.4%, 0% 84.2%, 2% 84.2%);
+    clip-path: polygon(
+      2% 16.21%,
+      0% 16.01%,
+      0% 0%,
+      95% 0%,
+      100% 30.42%,
+      100% 5%,
+      100% 100%,
+      100% 99.4%,
+      0% 99.4%,
+      0% 84.2%,
+      2% 84.2%
+    );
   }
 
   .filters {
@@ -63,12 +75,12 @@
 
       .text {
         margin-right: 30px;
-        font-family: 'Jost-Light';
+        font-family: var("--font-jost");
         font-size: 15px;
         font-style: normal;
         font-weight: 500;
         line-height: normal;
-        color: $color-contour
+        color: $color-contour;
       }
     }
 
@@ -76,7 +88,7 @@
       padding: 4px 18px;
       border: 1px solid $color-contour;
       color: $color-text;
-      font-family: 'Furore';
+      font-family: "--font-furore";
       cursor: pointer;
     }
   }

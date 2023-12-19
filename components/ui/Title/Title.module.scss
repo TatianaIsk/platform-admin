@@ -1,11 +1,11 @@
-@import '@/styles/_variables.scss';
+@import "@/styles/_variables.scss";
 
 .title {
-	color: $color-subtitle;
-  font-family: 'Furore';
+  color: $color-subtitle;
+  font-family: var("--font-furore");
   font-size: 36px;
   font-style: normal;
   font-weight: 400;
-  line-height: 116%; 
+  line-height: 116%;
   letter-spacing: -0.36px;
 }

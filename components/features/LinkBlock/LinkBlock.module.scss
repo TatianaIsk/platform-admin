@@ -1,18 +1,18 @@
-@import '@/styles/_variables.scss';
+@import "@/styles/_variables.scss";
 
 .container {
-	display: flex;
-	justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 
-	a {
-		color: $color-navigation;
-		font-family: 'Furore';
-		font-size: 14px; 
-	}
+  a {
+    color: $color-navigation;
+    font-family: var("--font-furore");
+    font-size: 14px;
+  }
 
-	.links {
-		a {
-			margin-left: 16px;
-		}
-	}
+  .links {
+    a {
+      margin-left: 16px;
+    }
+  }
 }

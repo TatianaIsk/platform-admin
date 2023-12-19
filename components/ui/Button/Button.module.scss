@@ -1,12 +1,12 @@
-@import '@/styles/_variables.scss';
+@import "@/styles/_variables.scss";
 
 .button {
   color: $color-navigation;
-  font-family: 'Furore';
+  font-family: var("--font-furore");
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   letter-spacing: -0.14px;
-	text-transform: uppercase;
+  text-transform: uppercase;
 }

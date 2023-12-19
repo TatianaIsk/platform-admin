@@ -1,4 +1,4 @@
-@import '@/styles/_variables.scss';
+@import "@/styles/_variables.scss";
 
 .container {
   width: 100%;
@@ -25,7 +25,7 @@
   }
 
   .subtitle {
-    font-family: 'Jost-bold';
+    font-family: var("--font-jost");
     font-size: 22px;
     font-style: normal;
     font-weight: 700;
@@ -45,9 +45,21 @@
     padding: 15px 62px;
     margin-right: 20px;
     color: $color-white;
-    font-family: 'Furore';
+    font-family: var("--font-furore");
     font-size: 14px;
     font-weight: 300;
-    clip-path: polygon(2% 16.21%, 0% 16.01%, 0% 0%, 95% 0%, 100% 30.42%, 100% 5%, 100% 100%, 100% 99.4%, 0% 99.4%, 0% 84.2%, 2% 84.2%);
+    clip-path: polygon(
+      2% 16.21%,
+      0% 16.01%,
+      0% 0%,
+      95% 0%,
+      100% 30.42%,
+      100% 5%,
+      100% 100%,
+      100% 99.4%,
+      0% 99.4%,
+      0% 84.2%,
+      2% 84.2%
+    );
   }
 }

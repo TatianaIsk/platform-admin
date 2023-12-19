@@ -1,9 +1,9 @@
-@import '@/styles/_variables.scss';
+@import "@/styles/_variables.scss";
 
 .select {
   max-width: 300px;
   padding: 3px 12px 4px 8px;
-  font-family: 'Furore';
+  font-family: var("--font-furore");
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -18,11 +18,11 @@
 }
 
 .option {
-  font-family: 'Furore';
+  font-family: var("--font-furore");
   font-size: 14px;
 
   &:focus {
-    font-family: 'Furore';
+    font-family: var("--font-furore");
     font-size: 14px;
   }
 }
