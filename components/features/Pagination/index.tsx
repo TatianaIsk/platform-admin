@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import ReactPaginate from 'react-paginate';
 
-import s from './Pagination.module.scss'
+import s from './Pagination.module.scss';
 
 interface PaginationProps {
   pageCount: number;
@@ -11,9 +11,9 @@ interface PaginationProps {
 const Pagination: React.FC<PaginationProps> = ({ pageCount, onPageChange }) => {
   const [currentPage, setCurrentPage] = useState(0);
 
-  const handlePageChange = (selected: { selected: number }) => {
-    setCurrentPage(selected.selected);
-    onPageChange(selected.selected);
+  const handlePageChange = ({ selected }: { selected: number }) => {
+    setCurrentPage(selected);
+    onPageChange(selected);
   };
 
   return (

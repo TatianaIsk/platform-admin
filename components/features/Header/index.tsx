@@ -6,30 +6,22 @@ import clsx from 'clsx';
 
 import s from './Header.module.scss';
 import Button from '@/components/ui/Button';
+import Link from 'next/link';
 
 interface HeaderProps extends PropsWithChildren {
   className?: string;
 }
 
-const Header: React.FC<HeaderProps> = ({ className, children }) => {
-  const router = useRouter();
-
-  return (
-    <div className={clsx(s.container, className)}>
-      <div
-        className={s.logo}
-        onClick={() => {
-          router.push('/');
-        }}
-      >
-        M-Social
-      </div>
-      <div>
-        <Button className={s.themeBtn} />
-        <Button className={s.loginBtn} />
-      </div>
+const Header: React.FC<HeaderProps> = ({ className, children }) => (
+  <header className={clsx(s.container, className)}>
+    <Link className={s.logo} href='/'>
+      M-Social
+    </Link>
+    <div>
+      <Button className={s.themeBtn} />
+      <Button className={s.loginBtn} />
     </div>
-  );
-};
+  </header>
+);
 
 export default Header;

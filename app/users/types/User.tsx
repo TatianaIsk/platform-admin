@@ -1,17 +1,15 @@
-import { FieldValues } from 'react-hook-form';
-export interface User extends FieldValues {
+export type User = {
   id: number;
   name: string;
   username: string;
   email: string;
+  phone: string;
   address: {
-    street: string;
     city: string;
+    street: string;
     zipcode: string;
   };
-  phone: string;
   company: {
     name: string;
-    catchPhrase: string;
   };
-}
+};

@@ -14,9 +14,9 @@ const LinkBlock: React.FC<LinkBlockProps> = ({ previousPageUrl, links }) => (
   <div className={s.container}>
     <Link href={previousPageUrl}> {'<<<'} Назад</Link>
     <div className={s.links} key={previousPageUrl}>
-      {links.map(link => (
-        <Link key={link.url} href={link.url}>
-          {link.title}
+      {links.map(({ url, title }) => (
+        <Link key={url} href={url}>
+          {title}
         </Link>
       ))}
     </div>

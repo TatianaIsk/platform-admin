@@ -1,4 +1,4 @@
-import { ComponentPropsWithRef } from 'react';
+import { ComponentPropsWithRef, useId } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { ErrorMessage } from '@hookform/error-message';
 
@@ -10,7 +10,6 @@ import s from './Input.module.scss';
 
 interface InputProps extends ComponentPropsWithRef<'input'> {
   label?: string;
-  htmlFor?: string;
   classNames?: {
     inputBlock?: string;
     input?: string;
@@ -18,13 +17,18 @@ interface InputProps extends ComponentPropsWithRef<'input'> {
   name: string;
 }
 
-const Input: React.FC<InputProps> = ({ label, htmlFor, classNames, name, disabled, ...props }) => {
+const Input: React.FC<InputProps> = ({ label, classNames, name, disabled, ...props }) => {
   const { register } = useFormContext();
+  const id = useId();
 
   return (
     <div className={clsx(s.inputBlock, classNames?.inputBlock)}>
-      {label && <label className={s.label}>{label}</label>}
-      <input id={htmlFor} className={clsx(s.input, classNames?.input)} placeholder='Введите данные' {...props} {...register(name, { disabled })} />
+      {label && (
+        <label htmlFor={id} className={s.label}>
+          {label}
+        </label>
+      )}
+      <input id={id} className={clsx(s.input, classNames?.input)} placeholder='Введите данные' {...props} {...register(name, { disabled })} />
       <ErrorMessage name={name} render={({ message }) => <Error>{message}</Error>} />
     </div>
   );
