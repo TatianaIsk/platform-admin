@@ -25,7 +25,7 @@
 
   .linkMenu {
     margin-bottom: 0;
-    font-family: var("--font-jost");
+    font-family: var(--font-jost);
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
@@ -40,7 +40,7 @@
 
   .sublink {
     margin-bottom: 5px;
-    font-family: var("--font-jost");
+    font-family: var(--font-jost);
     font-size: 16px;
     font-style: normal;
     font-weight: 100;
@@ -50,7 +50,7 @@
 
   .active {
     margin-bottom: 10px;
-    font-family: var("--font-jost");
+    font-family: var(--font-jost);
     font-size: 16px;
     font-style: normal;
     font-weight: 500;

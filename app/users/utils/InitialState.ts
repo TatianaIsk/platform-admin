@@ -1,18 +1,17 @@
-import { User } from '../types/User';
+import { User } from "../types/User";
 
 export const InitialState: User = {
   id: 0,
-  name: '',
-  username: '',
-  email: '',
+  name: "",
+  username: "",
+  email: "",
   address: {
-    street: '',
-    city: '',
-    zipcode: '',
+    street: "",
+    city: "",
+    zipcode: "",
   },
-  phone: '',
+  phone: "",
   company: {
-    name: '',
-    catchPhrase: '',
+    name: "",
   },
 };

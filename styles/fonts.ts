@@ -9,7 +9,7 @@ export const jost = Jost({
 });
 
 export const furore = Furore({
-  src: "./../next/font/local/Furore.woff",
+  src: "./../next/font/local/Furore/Furore.woff",
   variable: "--font-furore",
   display: "swap",
 });

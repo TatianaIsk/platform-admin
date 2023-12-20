@@ -25,7 +25,7 @@
   }
 
   .subtitle {
-    font-family: var("--font-jost");
+    font-family: var(--font-jost);
     font-size: 22px;
     font-style: normal;
     font-weight: 700;
@@ -45,7 +45,7 @@
     padding: 15px 62px;
     margin-right: 20px;
     color: $color-white;
-    font-family: var("--font-furore");
+    font-family: var(--font-furore);
     font-size: 14px;
     font-weight: 300;
     clip-path: polygon(

@@ -6,7 +6,7 @@
 
   h1 {
     color: $color-title;
-    font-family: var("--font-circe");
+    font-family: var(--font-circe);
     font-size: 200px;
     font-style: normal;
     font-weight: 800;
@@ -16,7 +16,7 @@
 
   h3 {
     color: $color-subtitle;
-    font-family: var("--font-jost");
+    font-family: var(--font-jost);
     font-size: 40px;
     font-style: normal;
     font-weight: 400;
@@ -26,7 +26,7 @@
 
   p {
     color: $color-subtitle;
-    font-family: var("--font-jost");
+    font-family: var(--font-jost);
     font-size: 18px;
     font-style: normal;
     font-weight: 400;

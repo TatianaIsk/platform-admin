@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 
-import { User } from '../types/User';
-import { fetchUser } from '../actions/fetchUser';
+import { User } from '../../types/User';
+import { fetchUser } from '../../actions/fetchUser';
 
 import s from './ViewUser.module.scss';
 
