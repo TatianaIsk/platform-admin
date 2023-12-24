@@ -69,14 +69,21 @@ const CreateUser = () => {
         </div>
         <h3 className={s.subtitle}>Адрес</h3>
         <div className={s.inputBlock}>
-          <Input label="Индекс" name="zipcode" />
-          <Input label="Город" name="city" />
+          <Input
+            label="Индекс"
+            name="address.zipcode"
+            classNames={{ input: errors.address?.zipcode && s.inputError }}
+          />
+          <Input label="Город" name="address.city" classNames={{ input: errors.address?.city && s.inputError }} />
         </div>
-        <Input label="Улица" classNames={{ inputBlock: s.input }} name="street" />
+        <Input
+          label="Улица"
+          classNames={{ inputBlock: s.input, input: errors.address?.street && s.inputError }}
+          name="address.street"
+        />
         <h3 className={s.subtitle}>Компания</h3>
         <div className={s.inputBlock}>
-          <Input label="Название" name="companyName" />
-          <Input label="Описание" name="catchPhrase" />
+          <Input label="Название" name="company.companyName" />
         </div>
         <Button className={s.btn} type="submit">
           Создать {">>>"}
