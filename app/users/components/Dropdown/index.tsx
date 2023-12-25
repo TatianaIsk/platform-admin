@@ -12,7 +12,7 @@ interface DropdownProps {
   hrefEdit: string;
 }
 
-const Dropdown: React.FC<DropdownProps> = ({ onClose, hrefView, hrefEdit }) => (
+const Dropdown: React.FC<DropdownProps> = ({ hrefView, hrefEdit }) => (
   <div className={s.dropdown}>
     <div className={s.dropdownContent}>
       <Link href={hrefView} className={s.link}>
@@ -25,9 +25,6 @@ const Dropdown: React.FC<DropdownProps> = ({ onClose, hrefView, hrefEdit }) => (
         Удалить
       </Link>
     </div>
-    <Button onClick={onClose} className={s.closeBtn}>
-      X
-    </Button>
   </div>
 );
 

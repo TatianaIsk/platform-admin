@@ -14,6 +14,7 @@ import Dropdown from "./components/Dropdown";
 
 import s from "./UsersPage.module.scss";
 import { User } from "./types/User";
+import Modal from "@/components/features/Modal";
 
 const users: User[] = UsersData.map(({ id, name, username, email, phone, address, company }) => ({
   id,
@@ -68,17 +69,6 @@ const UsersPage = () => {
     user.phone,
     user.address.city + " " + user.address.street + " " + user.address.zipcode,
     user.company.name,
-    <div key={user.id}>
-      {openUserId === user.id && (
-        <Dropdown
-          key={user.id}
-          hrefView={`/users/view/${user.id}`}
-          hrefEdit={`/users/edit/${user.id}`}
-          user={user}
-          onClose={() => setOpenUserId(null)}
-        />
-      )}
-    </div>,
   ]);
 
   return (
@@ -93,6 +83,15 @@ const UsersPage = () => {
         </div>
       </div>
       {isLoading ? <Loading /> : <Table columns={columns} data={data} />}
+      <Modal open={openUserId !== null} onClose={() => setOpenUserId(null)}>
+        {openUserId !== null && (
+          <Dropdown
+            hrefView={`/users/view/${openUserId}`}
+            hrefEdit={`/users/edit/${openUserId}`}
+            user={filteredData.find((user) => user.id === openUserId)}
+          />
+        )}
+      </Modal>
       <p className={s.text}>Строк на странице: {filteredData.length}</p>
     </div>
   );
