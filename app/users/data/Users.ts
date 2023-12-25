@@ -14,7 +14,6 @@ export const UsersData: User[] = [
     phone: '1-770-736-8031 x56442',
     company: {
       name: 'Romaguera-Crona',
-      catchPhrase: 'Multi-layered client-server neural-net',
     },
   },
   {
@@ -30,7 +29,6 @@ export const UsersData: User[] = [
     phone: '010-692-6593 x09125',
     company: {
       name: 'Deckow-Crist',
-      catchPhrase: 'Proactive didactic contingency',
     },
   },
   {
@@ -46,7 +44,6 @@ export const UsersData: User[] = [
     phone: '1-463-123-4447',
     company: {
       name: 'Romaguera-Jacobson',
-      catchPhrase: 'Face to face bifurcated interface',
     },
   },
   {
@@ -62,7 +59,6 @@ export const UsersData: User[] = [
     phone: '493-170-9623 x156',
     company: {
       name: 'Robel-Corkery',
-      catchPhrase: 'Multi-tiered zero tolerance productivity',
     },
   },
   {
@@ -78,7 +74,6 @@ export const UsersData: User[] = [
     phone: '(254)954-1289',
     company: {
       name: 'Keebler LLC',
-      catchPhrase: 'User-centric fault-tolerant solution',
     },
   },
   {
@@ -94,7 +89,6 @@ export const UsersData: User[] = [
     phone: '1-477-935-8478 x6430',
     company: {
       name: 'Considine-Lockman',
-      catchPhrase: 'Synchronised bottom-line interface',
     },
   },
   {
@@ -110,7 +104,6 @@ export const UsersData: User[] = [
     phone: '210.067.6132',
     company: {
       name: 'Johns Group',
-      catchPhrase: 'Configurable multimedia task-force',
     },
   },
   {
@@ -126,7 +119,6 @@ export const UsersData: User[] = [
     phone: '586.493.6943 x140',
     company: {
       name: 'Abernathy Group',
-      catchPhrase: 'Implemented secondary concept',
     },
   },
   {
@@ -142,7 +134,6 @@ export const UsersData: User[] = [
     phone: '(775)976-6794 x41206',
     company: {
       name: 'Yost and Sons',
-      catchPhrase: 'Switchable contextually-based project',
     },
   },
   {
@@ -158,7 +149,6 @@ export const UsersData: User[] = [
     phone: '024-648-3804',
     company: {
       name: 'Hoeger LLC',
-      catchPhrase: 'Centralized empowering task-force',
     },
   },
 ];

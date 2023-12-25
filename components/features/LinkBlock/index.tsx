@@ -1,21 +1,31 @@
-import Link from 'next/link';
+import Link from "next/link";
 
-import s from './LinkBlock.module.scss';
+import clsx from "clsx";
+
+import s from "./LinkBlock.module.scss";
 
 interface LinkBlockProps {
-  previousPageUrl: string;
+  previousPageUrl?: string;
   links: {
     title: string;
     url: string;
   }[];
+  classNames?: {
+    links?: string;
+    link?: string;
+  };
 }
 
-const LinkBlock: React.FC<LinkBlockProps> = ({ previousPageUrl, links }) => (
+const LinkBlock: React.FC<LinkBlockProps> = ({ previousPageUrl, links, classNames }) => (
   <div className={s.container}>
-    <Link href={previousPageUrl}> {'<<<'} Назад</Link>
-    <div className={s.links} key={previousPageUrl}>
+    {previousPageUrl && (
+      <Link href={previousPageUrl} className={s.link}>
+        {"<<<"} Назад
+      </Link>
+    )}
+    <div className={clsx(s.links, classNames?.links)} key={previousPageUrl ?? "default-key"}>
       {links.map(({ url, title }) => (
-        <Link key={url} href={url}>
+        <Link key={url} href={url} className={clsx(s.link, classNames?.link)}>
           {title}
         </Link>
       ))}

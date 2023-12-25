@@ -1,3 +1,5 @@
+@import './../../../../styles/_variables.scss';
+
 .container {
 	width: 100%;
 	padding: 36px 50px;
@@ -6,4 +8,18 @@
     margin: 36px 0 32px 0;
   }
 
+	.link {
+		color: $color-text;
+		border: 1px solid $color-contour;
+		padding: 3px 8px 4px 12px;
+		margin-left: 0;
+	}
+
+	.links {
+    .link {
+      margin-left: 0;
+			margin-right: 6px;
+    }
+		margin-bottom: 24px;
+  }
 }

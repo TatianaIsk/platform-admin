@@ -3,7 +3,7 @@ import Button from '../Button';
 import s from './Table.module.scss';
 
 interface TableProps {
-  columns: (string | React.ReactNode)[];
+  columns?: (string | React.ReactNode)[];
   data: (string | number | React.ReactNode)[][];
 }
 
@@ -11,7 +11,7 @@ const Table: React.FC<TableProps> = ({ columns, data }) => (
   <table className={s.table}>
     <thead className={s.thead}>
       <tr>
-        {columns.map((column, index) => (
+        {columns?.map((column, index) => (
           <th key={index}>{column}</th>
         ))}
       </tr>
