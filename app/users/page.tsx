@@ -10,7 +10,7 @@ import Search from "@/components/features/Search";
 import Button from "@/components/ui/Button";
 import Loading from "@/components/features/Loading";
 import Table from "@/components/ui/Table";
-import Dropdown from "./components/Dropdown";
+import Dropdown from "../../components/features/Dropdown";
 
 import s from "./UsersPage.module.scss";
 import { User } from "./types/User";
@@ -86,9 +86,9 @@ const UsersPage = () => {
       <Modal open={openUserId !== null} onClose={() => setOpenUserId(null)}>
         {openUserId !== null && (
           <Dropdown
+            title={{ title: "Пользователь ", id: openUserId }}
             hrefView={`/users/view/${openUserId}`}
             hrefEdit={`/users/edit/${openUserId}`}
-            user={filteredData.find((user) => user.id === openUserId)}
           />
         )}
       </Modal>

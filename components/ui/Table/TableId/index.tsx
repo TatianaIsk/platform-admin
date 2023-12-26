@@ -1,12 +1,12 @@
 import { User } from "@/app/users/types/User";
 
-import s from "./TableUser.module.scss";
+import s from "./TableId.module.scss";
 
-interface TableUserProps {
+interface TableIdProps {
   data: User[];
 }
 
-const TableUser: React.FC<TableUserProps> = ({ data }) => (
+const TableId: React.FC<TableIdProps> = ({ data }) => (
   <table className={s.table}>
     <tbody>
       {data.map((rowData, rowIndex) => (
@@ -45,4 +45,4 @@ const TableUser: React.FC<TableUserProps> = ({ data }) => (
   </table>
 );
 
-export default TableUser;
+export default TableId;

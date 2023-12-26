@@ -21,6 +21,8 @@ import Pagination from "@/components/features/Pagination";
 
 import s from "./TaskPage.module.scss";
 import Link from "next/link";
+import Modal from "@/components/features/Modal";
+import Dropdown from "@/components/features/Dropdown";
 
 const tasks: Task[] = TasksData.map(({ userId, id, title, completed }) => ({
   userId,
@@ -31,6 +33,7 @@ const tasks: Task[] = TasksData.map(({ userId, id, title, completed }) => ({
 
 const TasksPage = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const [openTaskId, setOpenTaskId] = useState<number | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
 
   const [currentPage, setCurrentPage] = useState(0);
@@ -41,10 +44,14 @@ const TasksPage = () => {
   const statusOptions = ["Выполнено", "Не выполнено"];
   const perPage = 25;
 
-  const columns = columnTitles.map((col) => (
+  const handleButtonClick = (taskId: number) => {
+    setOpenTaskId((prevUserId) => (prevUserId === taskId ? null : taskId));
+  };
+
+  const columns = columnTitles.map((col, index) => (
     <div key={col.key} className={s.column}>
-      {col.title}
-      <Button className={s.theadBtn} />
+      {index === 0 ? col.title : col.title + " "}
+      {index !== 0 && index !== columnTitles.length - 1 && <Button className={s.theadBtn} />}
     </div>
   ));
 
@@ -55,14 +62,15 @@ const TasksPage = () => {
       (selectedStatus === "" || selectedStatus === "Статус" || task.completed === (selectedStatus === "Выполнено"))
   );
 
-  const data = filteredTask
-    .slice(currentPage * perPage, currentPage * perPage + perPage)
-    .map((task) => [
-      task.id,
-      UsersData.find((user) => user.id === task.userId)?.name,
-      task.title,
-      task.completed ? <Image src={completed} alt="" /> : <Image src={notCompleted} alt="" />,
-    ]);
+  const data = filteredTask.slice(currentPage * perPage, currentPage * perPage + perPage).map((task) => [
+    <div key={task.id}>
+      <Button className={s.btn} onClick={() => handleButtonClick(task.id)} />
+    </div>,
+    task.id,
+    UsersData.find((user) => user.id === task.userId)?.name,
+    task.title,
+    task.completed ? <Image src={completed} alt="" /> : <Image src={notCompleted} alt="" />,
+  ]);
 
   return (
     <FormProvider {...useForm()}>
@@ -84,6 +92,15 @@ const TasksPage = () => {
           />
         </div>
         {isLoading ? <Loading /> : <Table columns={columns} data={data} />}
+        <Modal open={openTaskId !== null} onClose={() => setOpenTaskId(null)}>
+          {openTaskId !== null && (
+            <Dropdown
+              title={{ title: "Задача ", id: openTaskId }}
+              hrefView={`/tasks/view/${openTaskId}`}
+              hrefEdit={`/tasks/edit/${openTaskId}`}
+            />
+          )}
+        </Modal>
         <div className={s.footer}>
           <Link className={s.btnCreate} href="/tasks/create-task">
             Создать {">>>"}

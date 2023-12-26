@@ -8,9 +8,7 @@ import { UsersData } from "../../data/Users";
 import s from "./ViewUser.module.scss";
 import Title from "@/components/ui/Title";
 import LinkBlock from "@/components/features/LinkBlock";
-import TableUser from "@/components/ui/Table/TableUser";
-import Link from "next/link";
-import { title } from "process";
+import TableUser from "@/components/ui/Table/TableId";
 
 const ViewUser = () => {
   const { id }: { id: string } = useParams();

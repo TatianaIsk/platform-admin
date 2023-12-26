@@ -7,13 +7,17 @@ import Button from "@/components/ui/Button";
 import s from "./Dropdown.module.scss";
 
 interface DropdownProps {
-  onClose: (event: MouseEvent<HTMLButtonElement>) => void;
+  title: {
+    title: string;
+    id: number;
+  };
   hrefView: string;
   hrefEdit: string;
 }
 
-const Dropdown: React.FC<DropdownProps> = ({ hrefView, hrefEdit }) => (
+const Dropdown: React.FC<DropdownProps> = ({ hrefView, hrefEdit, title }) => (
   <div className={s.dropdown}>
+    <p className={s.title}>{title?.title} {title?.id}</p>
     <div className={s.dropdownContent}>
       <Link href={hrefView} className={s.link}>
         Посмотреть
