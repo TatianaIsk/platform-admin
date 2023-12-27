@@ -1,0 +1,27 @@
+@import '@/styles/_variables.scss';
+
+.table {
+  width: 100%;
+
+  tbody {
+    tr {
+      border-bottom: 1px solid $color-contour;
+      padding-bottom: 8px;
+			display: flex;
+			justify-content: space-between;
+
+      td {
+        padding: 12px 0 9px 7px;
+        cursor: pointer;
+        color: $color-text;
+				width: 100%;
+
+        &::after {
+          content: '';
+          display: table-row;
+          height: 8px;
+        }
+      }
+    }
+  }
+}

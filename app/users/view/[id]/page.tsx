@@ -5,10 +5,12 @@ import { useParams } from "next/navigation";
 import { User } from "../../types/User";
 import { UsersData } from "../../data/Users";
 
-import s from "./ViewUser.module.scss";
 import Title from "@/components/ui/Title";
 import LinkBlock from "@/components/features/LinkBlock";
-import TableUser from "@/components/ui/Table/TableId";
+import TableId from "@/components/ui/Table/TableUser";
+
+import s from "./ViewUser.module.scss";
+import TableUser from "@/components/ui/Table/TableUser";
 
 const ViewUser = () => {
   const { id }: { id: string } = useParams();
@@ -42,7 +44,7 @@ const ViewUser = () => {
       />
       <Title title="Просмотр пользователя" className={s.title} />
       <LinkBlock
-        classNames={{link: s.link, links: s.links}}
+        classNames={{ link: s.link, links: s.links }}
         links={[
           { title: "Задачи", url: "/" },
           { title: "Посты", url: "/" },
