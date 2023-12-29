@@ -1,0 +1,65 @@
+@import "@/styles/_variables.scss";
+
+.container {
+  width: 100%;
+  padding: 36px 50px;
+
+  .title {
+    margin: 36px 0 32px 0;
+  }
+
+  .inputBlock {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    margin-bottom: 24px;
+
+    & > div {
+      flex: 1;
+      margin-right: 10px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .subtitle {
+    font-family: var(--font-jost);
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+    margin: 32px 0 16px 0;
+  }
+
+  .input {
+    max-width: 890px;
+  }
+
+  .inputError {
+    border: 1px solid $color-red;
+  }
+
+  .btn {
+    background-color: $color-navigation;
+    padding: 15px 62px;
+    margin-right: 20px;
+    color: $color-white;
+    font-family: var(--font-furore);
+    font-size: 14px;
+    font-weight: 300;
+    clip-path: polygon(
+      2% 16.21%,
+      0% 16.01%,
+      0% 0%,
+      95% 0%,
+      100% 30.42%,
+      100% 5%,
+      100% 100%,
+      100% 99.4%,
+      0% 99.4%,
+      0% 84.2%,
+      2% 84.2%
+    );
+  }
+}

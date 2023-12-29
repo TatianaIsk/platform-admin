@@ -1,25 +1,28 @@
 "use client";
 import { useEffect, useState } from "react";
+import { useParams, useRouter } from "next/navigation";
 import { FormProvider, useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { validationSchema } from "../validation";
-
-import { useRouter } from "next/navigation";
-import { Task } from "../types/Task";
-import { InitialState } from "../utils/initialState";
-import { fetchUsers } from "@/app/users/actions/fetchUsers";
-import { User } from "@/app/users/types/User";
 
 import LinkBlock from "@/components/features/LinkBlock";
+
+import { Task } from "../../types/Task";
+import { TasksData } from "../../data/Tasks";
+
+import { yupResolver } from "@hookform/resolvers/yup";
+import { InitialState } from "../../utils/initialState";
+import { validationSchema } from "../../validation";
+
+import s from "./EditTask.module.scss";
+import Button from "@/components/ui/Button";
+import Select from "@/components/ui/Select";
 import Title from "@/components/ui/Title";
 import Input from "@/components/ui/Input";
-import Select from "@/components/ui/Select";
-import Button from "@/components/ui/Button";
+import { User } from "@/app/users/types/User";
+import { fetchUsers } from "@/app/users/actions/fetchUsers";
 
-import s from "./CreateTask.module.scss";
-
-const CreateTask = () => {
+const EditTask = () => {
   const router = useRouter();
+  const { id }: { id: string } = useParams();
 
   const [task, setTask] = useState<Task | undefined>(undefined);
   const [users, setUsers] = useState<User[]>([]);
@@ -32,6 +35,38 @@ const CreateTask = () => {
 
     fetchUserData();
   }, []);
+
+  useEffect(() => {
+    const fetchTask = async () => {
+      try {
+        const taskData = TasksData.find((task) => task.id === Number(id));
+        if (taskData) {
+          setTask(taskData);
+        } else {
+          console.error("task is not found");
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchTask();
+  }, [id]);
+
+  useEffect(() => {
+    const fetchTask = async () => {
+      try {
+        const taskData = TasksData.find((task) => task.id === Number(id));
+        if (taskData) {
+          setTask(taskData);
+        } else {
+          console.error("task is not found");
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchTask();
+  }, [id]);
 
   const form = useForm({
     defaultValues: InitialState,
@@ -71,16 +106,21 @@ const CreateTask = () => {
             { title: "Просмотр", url: "/tasks" },
           ]}
         />
-        <Title title="создать задачу" className={s.title} />
+        <Title title={`редактировать задачу ${id}`} className={s.title} />
         <div className={s.inputBlock}>
-          <Input label="Заголовок" name="title" classNames={{ input: errors.title && s.inputError }} />
+          <Input
+            label="Заголовок"
+            name="title"
+            classNames={{ input: errors.title && s.inputError }}
+            value={task?.title}
+          />
           <Select
             className={errors.userId && s.selectError}
             options={["Пользователь", ...users.map((user) => user.name)]}
             name="userId"
+            value={users.find((user) => user.id === task?.userId)?.name || ""}
           />
         </div>
-        <Input label="Описание" name="description" classNames={{ inputBlock: s.input }} />
         <Button className={s.btn} type="submit">
           Создать {">>>"}
         </Button>
@@ -89,4 +129,4 @@ const CreateTask = () => {
   );
 };
 
-export default CreateTask;
+export default EditTask;
